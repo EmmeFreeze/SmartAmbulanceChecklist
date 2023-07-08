@@ -1,0 +1,19 @@
+CREATE TABLE Categories (
+category_id INTEGER PRIMARY KEY,
+category_name TEXT
+);
+
+CREATE TABLE Objects (
+object_id INTEGER PRIMARY KEY,
+object_name TEXT,
+req_quantity INTEGER,
+location_id INTEGER,
+FOREIGN KEY (location_id) REFERENCES Locations(location_id)
+);
+
+CREATE TABLE Locations (
+location_id INTEGER PRIMARY KEY,
+location_name TEXT,
+category_id INTEGER,
+FOREIGN KEY (category_id) REFERENCES Categories(category_id)
+);

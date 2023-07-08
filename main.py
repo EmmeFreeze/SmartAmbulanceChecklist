@@ -1,83 +1,55 @@
+from flask import Flask, render_template
 import sqlite3
-import json
-from flask import Flask, jsonify
-from flask_cors import CORS
 import os
+
+app = Flask(__name__)
 
 db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), r'storage/checklist.db')
 
-app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
-
 @app.route('/checklist')
-def get_checklist():
-    if(not os.path.exists(db_path)):
-        print("Database non trovato")
-        return jsonify({'error': 'Database non trovato'})
-    
+def checklist():
+    # Connect to the database and query for data
     conn = sqlite3.connect(db_path)
+    c = conn.cursor()
 
-    # Creazione del cursore per eseguire le query
-    cur = conn.cursor()
-
-    # Query per ottenere le macro posizioni
-    cur.execute('SELECT macro_posizione_id, nome_macro_posizione FROM MacroPosizioni')
-    macro_posizioni = cur.fetchall()
-
-    # Lista di macro posizioni nel formato richiesto dal JSON
-    macro_locations = []
-
-    # Ciclo per ottenere le posizioni e gli oggetti per ogni macro posizione
-    for macro_posizione in macro_posizioni:
-        macro_posizione_id, macro_posizione_nome = macro_posizione
-        macro_location = {
-            'macro_location_name': macro_posizione_nome,
-            'locations': []
-        }
-
-        # Query per ottenere le posizioni per la macro posizione corrente
-        cur.execute('SELECT posizione_id, nome_posizione FROM Posizioni WHERE macro_posizione_id = ?', (macro_posizione_id,))
-        posizioni = cur.fetchall()
-
-        # Ciclo per ottenere gli oggetti per ogni posizione
-        for posizione in posizioni:
-            posizione_id, posizione_nome = posizione
-            location = {
-                'location_name': posizione_nome,
-                'location_objects': []
-            }
-
-            # Query per ottenere gli oggetti per la posizione corrente
-            cur.execute('SELECT nome_oggetto, quantita FROM Oggetti WHERE posizione_id = ?', (posizione_id,))
-            oggetti = cur.fetchall()
-
-            # Ciclo per aggiungere gli oggetti alla lista di oggetti della posizione corrente
-            for oggetto in oggetti:
-                oggetto_nome, oggetto_quantita = oggetto
-                location['location_objects'].append({
-                    'object_name': oggetto_nome,
-                    'object_quantity': oggetto_quantita
+    categories = []
+    # Query the database for categories
+    c.execute('SELECT * FROM Categories')
+    categories_rows = c.fetchall()
+    for category_row in categories_rows:
+        category_id, category_name = category_row
+        # Query the database for locations associated with the current category
+        c.execute('SELECT * FROM Locations WHERE category_id = ?', (category_id,))
+        locations_rows = c.fetchall()
+        locations = []
+        for location_row in locations_rows:
+            location_id, location_name, _ = location_row
+            # Query the database for objects associated with the current location
+            c.execute('SELECT object_name, req_quantity FROM Objects WHERE location_id = ?', (location_id,))
+            objects_rows = c.fetchall()
+            objects = []
+            for object_row in objects_rows:
+                object_name, object_quantity = object_row
+                objects.append({
+                    'object_name': object_name,
+                    'object_quantity': object_quantity
                 })
+            # Add the current location to the list of locations
+            locations.append({
+                'location_name': location_name,
+                'location_objects': objects
+            })
+        # Add the current category to the list of categories
+        categories.append({
+            'category_name': category_name,
+            'locations': locations
+        })
 
-            # Aggiunta della posizione corrente alla lista di posizioni della macro posizione corrente
-            macro_location['locations'].append(location)
-
-        # Aggiunta della macro posizione corrente alla lista di macro posizioni
-        macro_locations.append(macro_location)
-
-    # Chiusura della connessione al database
+    # Close the connection to the database
     conn.close()
 
-    # Creazione del JSON
-    data = {'macro_locations': macro_locations}
-
-    # Restituzione del JSON come risposta alla richiesta HTTP
-    return jsonify(data)
-
-# render html page for the frontend
-@app.route('/')
-def index():
-    return app.send_static_file('index.html')
+    # Pass the data to the template and render it
+    return render_template('checklist.html', categories=categories)
 
 if __name__ == '__main__':
     app.run(debug=True, port=80)

@@ -1,0 +1,169 @@
+﻿MACROPOSITION VANO SANITARIO AMBULANZA;;
+POSITION MATERIALE GENERALE;;
+OBJECT 1;;Tavola spinale adulti
+OBJECT 1;;Tavola spinale pediatrica
+OBJECT 1;;Barella a cucchiaio
+OBJECT 1;;Materasso a depressione
+OBJECT 1;;KED adulti
+1;;KED pediatrico
+1;;Set di 3 steccobende rigide
+1;;Set di 3 steccobende a depressione con pompa
+1;;Barella
+1;;Sedia portantina con cinghie
+1;;Telo portaferiti
+2;;Scatole guanti S (1+1scorta)
+2;;Scatole guanti M (1+1scorta)
+2;;Scatole guanti L (1+1scorta)
+2;;Scatole guanti XL 1+1scorta
+1;;Defibrillatore
+1;;Elettrocardiogramma
+1;;Aspiratore fisso
+1;;Aspiratore portatile
+3;;Bombola ossigeno portatile
+2;;Bombola ossigeno fissa (una almeno a 150 atm)
+1;;Kit parto
+1;;Kit ustioni
+1;;Kit maxi-emergenze
+1;;Kit infettivi (ex-ebola)
+1;;Disinfettante presidi
+1;;Rotolo carta asciugatutto
+1;;Rotolo sacchetti rifiuti
+1;;Contenitore porta aghi
+2;;Cuscino + fodera
+1;;Estintore 3 kg
+1;;Pompa materassino
+1;;Padella
+1;;Pappagallo
+POSITION CASSETTI MEDICAZIONE;;
+OBJECT 15;;Busta garze sterili
+1;;Confezione garze non sterili
+3;;Benda 5x5
+3;;Benda 7x5
+3;;Benda 10x5
+2;;Benda coesiva
+3;;Rotolo di cerotto
+1;;Scatola cerottini
+5;;Telino termico
+20;;Bustine disinfettante
+1;;Telo ustioni alumed
+2;;Telino sterile 40x60
+3;;Telino sterile 80x120
+1;;Forbici bottonute
+1;;Forbici di Robin
+2;;Sondino aspirazione verde
+2;;Sondino aspirazione arancio.
+2;;Sondino aspirazione bianco
+2;;Sondino aspirazione blu
+2;;Sondino aspirazione nero
+2;;Cannula rossa
+2;;Cannula gialla
+2;;Cannula verde
+2;;Cannula arancione
+2;;Cannula nera
+2;;Cannula bianca
+2;;Cannula blu
+4;;Batteria AA
+4;;Batteria AAA
+4;;Occhiali protettivi
+POSITION ARMADIETTI SUPERIORI;;
+5;;Mascherina ossigeno adulti
+3;;Mascherina ossigeno ped.
+2;;Occhialini
+1;;Busta elettrodi ECG
+1;;Sacchetto aspiratore (1 per modello presente)
+1;;Ambu adulti
+1;;Ambu pediatrico
+1;;Benda tubolare misura 3
+1;;Benda tubolare misura 5
+1;;Benda tubolare misura 6
+5;;Soluzione fisiologica
+2;;Acqua ossigenata
+5;;Ghiaccio istantaneo
+1;;Ragno + 2 fermacapi spinale
+2;;Set ricambi spugne spinale
+3;;Cinghie cucchiaio
+1;;Collare cervicale giallo
+1;;Collare cervicale arancione
+1;;Collare cervicale verde
+1;;Collare cervicale blu
+1;;Collare cervicale P1
+1;;Collare cervicale P2
+1;;Collare cervicale P3
+1;;Collare cervicale regolabile
+SCOMPARTO SUPERIORE;;
+6;;Camice o tuta protettivo
+6;;Cuffietta
+10;;Telino monouso
+5;;Traversa protettiva
+1;;Cartone rifiuti infetti
+2;;Machere paraschizzi
+BORSA “PARAMETRI”;;
+1;;Saturimetro
+1;;Sonda saturimetro adulti
+1;;Sonda saturimetro pediatrico
+1;;Sonda saturimetro neonatale
+ZAINO;;
+MATERIALE GENERICO;;
+2;;Ghiaccio sintetico
+2;;Telo isotermico
+1;;Garze non sterili (scorta)
+1;;Pocket mask
+2;;Laccio emostatico
+2;;Soluzione fisiologica
+2;;Acqua ossigenata
+1;;Mascherina ossigeno adulti
+1;;Mascherina ossigena ped.
+1;;Occhialini
+SACCA MEDICAZIONI;;
+10;;Busta garze sterili
+1;;Confezione garze non sterili
+2;;Benda 5x5
+2;;Benda 7x5
+2;;Benda 10x5
+1;;Benda coesiva
+5;;Bustine disinfettante
+2;;Rotolo cerotto
+2;;Telino sterile 40x60
+1;;Telino sterile 80x120
+3;;Bende tubolari (varie misure)
+1;;Forbice bottonuta
+SACCA AMBU ADULTI;;
+1;;Pallone autoespandibile
+1;;Reservoir + tubo ossigeno
+1;;Maschera taglia 3
+1;;Maschera taglia 4
+1;;Maschera taglia 5
+SACCA AMBU PEDIATRICA;;
+1;;Pallone autoespandibile
+1;;Reservoir + tubo ossigeno
+1;;Maschera taglia 0
+1;;Maschera taglia 1
+1;;Maschera taglia 2
+1;;Sfigmomanometro elettronico
+1;;Bracciale adulti
+1;;Bracciale pediatrico
+1;;Sfigmomanometro manuale
+1;;Fonendoscopio
+1;;Maschera ossigeno
+1;;Termometro frontale
+SACCA MEDICAZIONI;;
+10;;Busta garze sterili
+1;;Confezione garze non sterili
+2;;Benda 5x5
+2;;Benda 7x5
+2;;Benda 10x5
+1;;Benda coesiva
+SACCA SONDINI;;
+2;;Sondino aspirazione verde
+2;;Sondino aspirazione arancio.
+2;;Sondino aspirazione bianco
+2;;Sondino aspirazione blu
+2;;Sondino aspirazione nero
+POSITION SCOMPARTO CANNULE;;
+2;;Cannula rossa
+2;;Cannula gialla
+2;;Cannula verde
+2;;Cannula arancione
+2;;Cannula nera
+2;;Cannula bianca
+2;;Cannula blu

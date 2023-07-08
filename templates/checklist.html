@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checklist Ambulanza</title>
+    <!-- Aggiunta dei file CSS di Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Stili per la formattazione della pagina */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .macro-location {
+            margin-bottom: 20px;
+        }
+
+        .location {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 90%;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        label {
+            margin-left: 10px;
+        }
+
+        th:first-child,
+        td:first-child {
+            width: 60%;
+            max-width: 300px;
+        }
+
+        th.second-child,
+        td.second-child {
+            width: 20%;
+            max-width: 100px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Creazione del menu usando il componente di navigazione di Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SmartEmergencyChecklist</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Esegui checklist</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Esegui checklist ambulanza</h1>
+
+        <!-- Container per le macro posizioni -->
+        <div id="macro-locations-container">
+            {% for category in categories %}
+            <div class="macro-location">
+                <h2>{{ category.category_name }}</h2>
+                {% for location in category.locations %}
+                <table class="location">
+                    <tr>
+                        <td colspan="3">{{ location.location_name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Oggetti</th>
+                        <th>Quantità</th>
+                        <th>Seleziona</th>
+                    </tr>
+                    {% for object in location.location_objects %}
+                    <tr>
+                        <td>{{ object.object_name }}</td>
+                        <td>{{ object.object_quantity }}</td>
+                        <td><label for="{{ object.object_name }}"><input type="checkbox" id="{{ object.object_name }}" name="{{ object.object_name }}"></label></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>
